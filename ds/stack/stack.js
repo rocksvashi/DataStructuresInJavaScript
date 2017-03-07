@@ -24,6 +24,8 @@ function Stack(max) {
 
 	this.pop = function() {
 		if(counter < 0) {
+			minValue = -1;
+			maxValue = -1;
 			throw "stack underflow"
 		}
 		var value = items[counter];
