@@ -2,6 +2,8 @@
 A Collection for few basic ADT, Sort and Searching Algorithm visualization through java script.
 All Example contains a HTML page where users can test and visualize how these ADT's or Algo's works behind the scene.
 
+#Demo
+Access: https://rocksvashi.github.io/DataStructuresInJavaScript/index.html
 ## Created by
 - [RocksVashi](https://github.com/rocksvashi)
 

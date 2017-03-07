@@ -4,6 +4,7 @@ function Stack(max) {
 	var max = max;
 	var minValue = -1;
 	var maxValue = -1;
+	
 	this.push = function(value) {
 		counter ++;
 		if(counter > max) {
