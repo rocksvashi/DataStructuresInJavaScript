@@ -2,8 +2,14 @@
 
 var array = []
 function addCol() {
+	
+	
 	var t = document.getElementById("row");
 	var max = document.getElementById("add").value;
+	if(parseInt(max)%10 !== 0 || parseInt(max) > 200) {
+		alert("Please add upto 200 items and Multiple of 10's");
+		return;
+	}
 	var value = 1;
 	for(var i=1; i<= max/10; i++) {
 		var tr = document.createElement("tr");
