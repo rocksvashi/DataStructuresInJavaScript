@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel='stylesheet' href='styles.css'>
+<link rel='stylesheet' href='../styles/base.css'>
+</head>
+<body>
+	<a href="../../index.html">Back</a>
+	<center>
+		<h1>HashTable Visualization Using JavaScript</h1>
+	</center>
+	<h4>What is a HashTable.</h4>
+	<p>Table allows only integers as values. Hash function to be used is the remainder of division by 128. In the view of implementation, this hash function can be encoded using remainder operator or using bitwise AND with 127.
+http://www.algolist.net/Data_structures/Hash_table/Simple_example
+	</p>
+	<table border="0" width="100%" cellpadding="10">
+	<tr>
+	<td width="60%" align="center">
+	<div class="staging">
+	<table border="0" width="100%" cellpadding="10">
+	<tr>
+		<td valign="middle" class="item" id="itemStaged"></td></tr>
+		<tr><td  valign="middle" id="progress" class="item1"></td>
+	</tr>
+	</table>
+	</div>
+	<br /><br />
+	** Maximum bucket 20 size
+	<table border="0" id="hashtable" class="hashtable" width="100%">
+	</table>
+	
+	</td>
+	<td valign="top"><table border="0" width="50%" id="maintable">
+		<tr>
+			<td>Add</td>
+			<td><div>Key&nbsp;&nbsp;<input type="number" value="" id="key" /> </div>
+				<div>Value <input type="text" value="" id="value" /> </div>
+				<button onclick="add()">Add</button></td>
+		</tr>
+
+		<tr>
+			<td>Search</td>
+			<td><input type="text" value="" id="search" />
+				<button onclick="search()">Search</button></td>
+		</tr>
+
+		<tr>
+			<td>Remove</td>
+			<td><input type="text" value="" id="remove" />
+				<button onclick="remove()">Remove</button></td>
+		</tr>
+
+		<!-- tr>
+			<td>Status</td>
+			<td id="status"></td>
+		</tr>
+
+		<tr>
+			<td>Runtime Complexity</td>
+			<td>
+				<table id="bigotable">
+
+					<tr>
+						<td>Find/Insert/delete at end </td>
+					</tr>
+					<tr>
+						<td style="background: #ddffdd">Θ(1)</td>
+					</tr>
+				</table>
+			</td>
+		</tr -->
+	</table> </td>
+	</tr>
+	</table>
+	<footer>
+		Created by: <a href="https://github.com/rocksvashi/" target="_blank">RocksVashi
+			Labs. </a>
+	</footer>
+</body>
+<script type="text/javascript" src="../libs/jquery-1.11.0.min.js"></script>
+  <script src=".//libs/jquery-ui.js"></script>
+<script src="hashtable.js"></script>
+<script src="pageevent.js"></script>
+</html>
