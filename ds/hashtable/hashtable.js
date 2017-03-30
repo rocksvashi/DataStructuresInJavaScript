@@ -17,7 +17,7 @@ var Entry = function(k, v) {
 var getHash = function(str, max){
     var hash = 0;
     for (var i = 0; i < str.length; i++) {
-      hash = ((hash<<5) - hash) + str.charCodeAt(i);
+      hash = ((hash<< 5) - hash) + str.charCodeAt(i);
       console.log(hash)
       hash = hash & hash; // Convert to 32bit integer
       hash = Math.abs(hash);
@@ -57,7 +57,7 @@ HashTable.prototype.get = function (key) {
     if (this.array[hash] == null)
           return -1;
     else
-          return this.array[hash].value;
+          return hash;
 }
 
 HashTable.prototype.remove = function (key) {
