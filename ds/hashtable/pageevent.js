@@ -65,7 +65,7 @@ function search() {
 
 function remove() {
 
-	var key = $("#remove").val();
+	var key = $("#search").val();
 	if (key === "") {
 		return;
 	}
@@ -83,7 +83,7 @@ function remove() {
 	// now animate
 	animate(eventList);
 
-	$("#remove").val("");
+	$("#search").val("");
 }
 
 function addEvent(key, value) {

@@ -26,9 +26,13 @@
 		<tr><td  valign="middle" id="progress" class="item1"></td>
 	</tr>
 	</table>
+	
 	</div>
+	<p></p>
 	<br /><br />
 	** Maximum bucket 20 size
+	
+	
 	<table border="0" id="hashtable" class="hashtable" width="100%">
 	</table>
 	
@@ -36,21 +40,15 @@
 	<td valign="top"><table border="0" width="50%" id="maintable">
 		<tr>
 			<td>Add</td>
-			<td><div>Key&nbsp;&nbsp;<input type="number" value="" id="key" /> </div>
-				<div>Value <input type="text" value="" id="value" /> </div>
+			<td><input type="text" placeholder="key" value="" id="key" /> 
+				<input type="text" placeholder="value" value="" id="value" /> 
 				<button onclick="add()">Add</button></td>
 		</tr>
 
 		<tr>
 			<td>Search</td>
-			<td><input type="text" value="" id="search" />
-				<button onclick="search()">Search</button></td>
-		</tr>
-
-		<tr>
-			<td>Remove</td>
-			<td><input type="text" value="" id="remove" />
-				<button onclick="remove()">Remove</button></td>
+			<td><input type="text" placeholder="key" value="" id="search" />
+				<button onclick="search()">Search</button> <button onclick="remove()">Remove</button></td>
 		</tr>
 
 		<!-- tr>
