@@ -9,11 +9,40 @@ BinaryTree.prototype.insert = function(value) {
 	}
 
 	if (this.isBst == true) {
-		this.root.insertBst(value);
+		this.root.insertBst(value, 1);
 		return;
 	}
 
-	this.root.insert(value);
+	this.root.insert(value, 1);
+}
+
+BinaryTree.prototype.tree = function () {
+	if(this.root == null) {
+		return [];
+	}
+	
+	var treeArray = [];
+
+	var queue = [];
+	queue.push(this.root);
+	
+	while(queue.length > 0) {
+		var tmp = [];
+		var node = queue.pop();
+		if(node.left != null) {
+			tmp.push(node.left.value);
+			// put at front
+			queue.unshift(node.left);
+		}
+		if (node.right != null) {
+			tmp.push(node.right.value);
+			// put at front
+			queue.unshift(node.right);
+		}
+		treeArray.push(tmp);
+	}
+	
+	return treeArray;
 }
 
 BinaryTree.prototype.find = function(value) {
@@ -46,9 +75,10 @@ var Node = function() {
 	this.level = 0;
 }
 
-Node.prototype.insert = function(value) {
+Node.prototype.insert = function(value, level) {
 	if (this.value === null) {
 		this.value = value;
+		this.level = 1;
 		return value;
 	}
 	
