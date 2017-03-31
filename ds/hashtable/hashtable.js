@@ -12,8 +12,6 @@ var Entry = function(k, v) {
 	this.value = v
 }
 
-// I adopted this hash function from the below URL
-// http://www.willvillanueva.com/javascript-hash-tables/
 var getHash = function(str, max){
     var hash = 0;
     for (var i = 0; i < str.length; i++) {
@@ -61,5 +59,11 @@ HashTable.prototype.get = function (key) {
 }
 
 HashTable.prototype.remove = function (key) {
-
+	var hash = this.get(key);
+	this.array[hash] = undefined;
+	this.print();
+	return hash;
 }
+
+//I adopted this hash function from the below URL
+//http://www.willvillanueva.com/javascript-hash-tables/

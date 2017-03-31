@@ -70,7 +70,7 @@ function remove() {
 		return;
 	}
 
-	index = hashTable.get(key);
+	index = hashTable.remove(key);
 	console.log('index ', index);
 	if (index == -1) {
 		alert("no key found..")
