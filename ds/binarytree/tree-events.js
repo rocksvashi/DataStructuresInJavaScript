@@ -56,6 +56,10 @@ function animatedWalk() {
 var visited = []
 
 function find() {
+    if(!document.getElementById("type").checked) {
+        alert("Right now only BST Find node is available");
+        return;
+    }
     // pre condtions
     var newNode = $("#node").val();
     if (newNode === "" || !$.isNumeric(newNode)) {
