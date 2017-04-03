@@ -3,6 +3,8 @@
  * Draw the tree nodes on Canvas.
  * Author: rocksvashi
  * License:  <a href="http://www.wtfpl.net/">WTFPL</a>
+ * 
+ * Refrences: http://www.cprogramming.com/tutorial/lesson18.html
  */
 
 var CanvasTreeDrawer = function (canvas, defaultRadius, defaultNodeDistanceX, defaultNodeDistanceY) {
