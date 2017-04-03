@@ -1,10 +1,17 @@
-var BinaryTree = function(isBst) {
-	this.root;
+/*
+ *
+ * A simple implementation of <code>BinaryTree</code>.
+ * Author: rocksvashi
+ * License:  <a href="http://www.wtfpl.net/">WTFPL</a>
+ */
+
+var BinaryTree = function (isBst) {
+	this.root = null;
 	this.isBst = isBst || false;
 }
 
-BinaryTree.prototype.insert = function(value) {
-	if (this.root === undefined) {
+BinaryTree.prototype.insert = function (value) {
+	if (this.root === null) {
 		this.root = new Node();
 	}
 
@@ -16,101 +23,106 @@ BinaryTree.prototype.insert = function(value) {
 	this.root.insert(value, 1);
 }
 
-BinaryTree.prototype.tree = function () {
-	if(this.root == null) {
-		return [];
-	}
-	
-	var treeArray = [];
+BinaryTree.prototype.levelOrder = function () {
+	var levelNodes = 0;
+	if (this.root == null)
+		return;
 
-	var queue = [];
-	queue.push(this.root);
-	
-	while(queue.length > 0) {
-		var tmp = [];
-		var node = queue.pop();
-		if(node.left != null) {
-			tmp.push(node.left.value);
-			// put at front
-			queue.unshift(node.left);
+	var m = []
+	var q = [];
+	q.unshift(this.root);
+	while (q.length > 0) {
+		levelNodes = q.length;
+		var t = []
+		while (levelNodes > 0) {
+			var n = q.pop();
+			t.push({
+				l: levelNodes,
+				value: n.value
+			});
+
+			levelNodes--;
+
+			if (n.left !== null) {
+				q.unshift(n.left);
+			}
+
+			if (n.right !== null) {
+				q.unshift(n.right);
+			}
+
+
 		}
-		if (node.right != null) {
-			tmp.push(node.right.value);
-			// put at front
-			queue.unshift(node.right);
-		}
-		treeArray.push(tmp);
+
+		m.push(t);
 	}
-	
-	return treeArray;
+
+	return m;
 }
 
-BinaryTree.prototype.find = function(value) {
+BinaryTree.prototype.find = function (value) {
 	if (this.root === null) {
-		return -1;
+		return [];
 	}
-
+	var visited = []
 	if (this.isBst) {
-		return this.root.findBstStyle(value);
+		return this.root.findBstStyle(value, visited);
 	}
 
-	return this.root.findNonBst(value);
-
+	return this.root.findNonBst(value, visited);
 }
 
 BinaryTree.prototype.printTree = function (node) {
 	if (node === null || typeof node == "undefined") {
 		return;
 	}
-	
+
 	console.log(node.value);
 	this.printTree(node.left);
 	this.printTree(node.right);
 }
 
-var Node = function() {
-	this.value = null;
+var Node = function (value) {
+	this.value = value || null;
 	this.left = null;
 	this.right = null;
-	this.level = 0;
 }
 
-Node.prototype.insert = function(value, level) {
+Node.prototype.insert = function (value, level) {
 	if (this.value === null) {
 		this.value = value;
-		this.level = 1;
 		return value;
 	}
-	
-	var nodes = [];
-	nodes.push(this); //push the root
-	
-	while(nodes.length > 0){
-        var node = nodes.pop();
-        if(node.left === null){
-            node.left = new Node();
-            node.left.value = value;
-            return;
-        } else {
-        	// add at front
-        	nodes.unshift(node.left)
-        }
 
-        if(node.right === null){
-          node.right = new Node();
-          node.right.value = value;
-          return;
-        } else {
-        	// add at front
-        	nodes.unshift(node.right)
-        }
-    }
-	
+	var nodes = [];
+	nodes.push(this); // push the root
+
+	while (nodes.length > 0) {
+		var node = nodes.pop();
+		if (node.left === null) {
+			node.left = new Node();
+			node.left.value = value;
+			return;
+		} else {
+			// add at front
+			nodes.unshift(node.left)
+		}
+
+		if (node.right === null) {
+			node.right = new Node();
+			node.right.value = value;
+			return;
+		} else {
+			// add at front
+			nodes.unshift(node.right)
+		}
+	}
+
 }
 
-Node.prototype.insertBst = function(value) {
-	
-	if (typeof this.value === "undefined") {
+Node.prototype.insertBst = function (value) {
+
+	if (!this.value) {
 		this.value = value;
 		return value;
 	}
@@ -121,41 +133,44 @@ Node.prototype.insertBst = function(value) {
 			this.right.value = value;
 			return value;
 		}
-		
+
 		return this.right.insertBst(value);
-		
+
 	} else {
-		
+
 		if (this.left === null) {
 			this.left = new Node();
 			this.left.value = value;
 			return value;
 		}
-		
+
 		return this.left.insertBst(value);
 	}
 
 }
 
-Node.prototype.findBstStyle = function(value) {
+Node.prototype.findBstStyle = function (value, visited) {
 
 	if (this.value == value) {
-		return value;
+		visited.push(value);
+		return visited;
 	}
 
+	visited.push(this.value);
 	if (value > this.value && this.right !== null) {
-		return this.right.findBstStyle(value);
+		return this.right.findBstStyle(value, visited);
 
 	} else {
 		if (this.left !== null) {
-			return this.left.findBstStyle(value);
+			return this.left.findBstStyle(value, visited);
 		}
 	}
 
-	return -1;
+	// if no match found
+	return [];
 }
 
-Node.prototype.findNonBst = function(value) {
+Node.prototype.findNonBst = function (value) {
 	if (this.value == value) {
 		return value;
 	}
