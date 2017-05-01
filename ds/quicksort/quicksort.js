@@ -73,3 +73,17 @@ QuickSort.prototype.swap = function (array, a, b) {
     array[a] = array[b];
     array[b] = temp;
 }
+
+//TODO(rocks): needs to fix
+QuickSort.prototype.randomPartition = function(arr, s, e) {
+
+		let n = (e - s + 1);
+
+		let p =  parseInt((Math.random() % n));
+
+		let t = arr[p + 1];
+		arr[p + 1] = arr[e];
+		arr[e] = t;
+
+		return this.partition(arr, s, e);
+	}
