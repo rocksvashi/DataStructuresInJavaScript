@@ -1,0 +1,78 @@
+<html>
+
+<head>
+
+    <link rel='stylesheet' href='styles.css' />
+    <link rel='stylesheet' href='../styles/base.css' />
+</head>
+
+<body>
+    <a href="../../index.html">Back</a>
+    <center>
+        <h1>MergeSort Visualization Using JavaScript</h1>
+    </center>
+    <h4>MergeSort</h4>
+    <table width="100%" id="main">
+        <tr>
+            <td width="50%" valign="top">
+                Merge sort (also commonly spelled mergesort) is an efficient, general-purpose, comparison-based sorting algorithm. Most implementations
+                produce a stable sort, which means that the implementation preserves the input order of equal elements in
+                the sorted output. Mergesort is a divide and conquer algorithm
+                <br/><br/>
+
+                <img src="../images/base-bigo.png" /><br/>
+                <img src="bigo.png" /><br/><br/>
+                <table>
+                    <tr>
+                        <td width="40%" valign="top">Conceptually, a merge sort works as follows:
+                            <ul>
+                                <li>
+                                    Divide the unsorted list into n sublists, each containing 1 element (a list of 1 element is considered sorted).</li>
+                                <li>Repeatedly merge sublists to produce new sorted sublists until there is only 1 sublist remaining.
+                                    This will be the sorted list.</li>
+                            </ul>
+                        </td>
+                        <td> <img src="../quicksort/quicksort.png" style="text-align: left" /></td>
+                    </tr>
+                </table>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <hr />
+    <table border="0" width="50%" id="maintable">
+        <tr>
+            <td>Add</td>
+            <td><input type="text" id="item" placeholder="add comma separted numbers e.g 34,12,3,5"></input>
+                <button onclick="add()">Add</button></td>
+        </tr>
+        <tr>
+            <td>Sort</td>
+            <td><input type="checkbox" id="desc">Desc Order</input>
+                <button onclick="sort()">Sort</button></td>
+        </tr>
+    </table>
+
+    <p style="height:80px;">
+        <span id="progress"></span><br /><br />
+        <span id="events"></span>
+    </p>
+
+    <ul id="row">
+    </ul>
+
+    <br />
+    <p style="clear: both">
+        <footer> Created by: <a href="https://github.com/rocksvashi/" target="_blank">RocksVashi Labs. </a></footer>
+    </p>
+</body>
+
+</html>
+
+<script type="text/javascript" src="../libs/jquery-1.11.0.min.js"></script>
+<script src="../libs/jquery-swapsies.js"></script>
+<script type="text/javascript" src="mergesort.js"></script>
+<script type="text/javascript" src="page.js"></script>

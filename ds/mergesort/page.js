@@ -1,5 +1,5 @@
 //global vars
-var array = [];
+var array = [15, 5, 1, 10, 7];
 var queue = [];
 var qs;
 var partitions = 0;
@@ -8,10 +8,7 @@ var tempArr = []
 function createDataSet() {
     if (tempArr.length > 0) {
         array = tempArr;
-    } else {
-        array = [15, 5, 1, 10, 7]
-    }
-
+    } 
 }
 
 function initArrayOnUi() {
@@ -67,15 +64,11 @@ function sort() {
     if (isDesc === true) {
         order = "desc";
     }
-    var qs = new QuickSort(array, order, queue);
-    array = qs.sort();
+    var ms = new MergeSort(array);
+    array = ms.sort();
     console.log(array);
     console.log(queue);
-
-    this.partitions = queue.length;
-    setTimeout(function () {
-        animate(queue);
-    }, 1000);
+     initArrayOnUi();
 }
 
 function animate(list, callback) {
